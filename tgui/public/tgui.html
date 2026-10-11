@@ -520,8 +520,6 @@ window.replaceHtml = function (inline_html) {
   );
 };
 
-// Signal tgui that we're ready to receive updates
-Byond.sendMessage('ready');
 </script>
 
 <style>
@@ -665,6 +663,13 @@ Nanotrasen (c) 2525-2562
     <div>Please enable Javascript and restart the game.</div>
   </div>
 </noscript>
+
+<script type="text/javascript">
+// Signal tgui that we're ready to receive updates.
+// Sent from the end of <body>: on BYOND 516 (WebView2) this triggers a
+// byond:// navigation, which must not start before the page has parsed.
+Byond.sendMessage('ready');
+</script>
 
 </body>
 </html>
